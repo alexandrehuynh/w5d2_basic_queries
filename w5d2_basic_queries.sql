@@ -37,9 +37,9 @@ order by count(rental_id) desc;
 
 
 -- 6. How many different district names are there?
-select distinct count(district)
+select count(distinct district)
 from address;
--- There are 603 different districts
+-- There are 378 different districts
 
 
 -- 7. What film has the most actors in it? (use film_actor table and get film_id)
