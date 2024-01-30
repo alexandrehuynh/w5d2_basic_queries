@@ -32,7 +32,8 @@ where last_name = 'William';
 select count(rental_id), staff_id
 from rental
 group by staff_id 
-order by count(rental_id) desc;
+order by count(rental_id) desc
+limit 1;
 -- Staff 1 aka Mike sold the most rental with 8040
 
 
@@ -46,16 +47,18 @@ from address;
 select film_id, count(film_actor)
 from film_actor
 group by film_id
-order by count(film_actor) desc;
+order by count(film_actor) desc
+limit 1;
 -- Lambs Cincinatti (508) has the most actors with the count of 15
 
 
 -- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
-select store_id, count(last_name) AS customer_count
+select store_id, count(last_name) as customer_count
 from customer
 where last_name LIKE '%es'
 group by store_id
-order by customer_count DESC;
+order by customer_count desc
+limit 1;
 -- There are 13 customers at store 1 with a last name ending in es
 
 
@@ -63,7 +66,7 @@ order by customer_count DESC;
 -- with ids between 380 and 430? (use group by and having > 250)
 select amount, count(*) as rental_count
 from payment
-where customer_id BETWEEN 380 AND 430
+where customer_id between 380 and 430
 group BY amount
 having count(*) > 250;
 -- There are 3 amount payments (2.99, 4.99 and 0.99) that meets these requirements
@@ -74,9 +77,9 @@ having count(*) > 250;
 select count(distinct rating) as film_rating
 from film;
 -- There are 5 different rating categories
-select rating, count(*) AS num_movies
+select rating, count(*) as num_movies
 from film
 group by rating
-order by num_movies desc
+order by num_movies desc;
 -- The rating with the most movies is PG-13
 
