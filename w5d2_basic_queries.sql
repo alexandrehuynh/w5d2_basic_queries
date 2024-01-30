@@ -51,7 +51,7 @@ order by count(film_actor) desc;
 
 
 -- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
-select store_id, COUNT(last_name) AS customer_count
+select store_id, count(last_name) AS customer_count
 from customer
 where last_name LIKE '%es'
 group by store_id
@@ -61,11 +61,11 @@ order by customer_count DESC;
 
 -- 9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
 -- with ids between 380 and 430? (use group by and having > 250)
-select amount, COUNT(*) as rental_count
+select amount, count(*) as rental_count
 from payment
 where customer_id BETWEEN 380 AND 430
 group BY amount
-having COUNT(*) > 250;
+having count(*) > 250;
 -- There are 3 amount payments (2.99, 4.99 and 0.99) that meets these requirements
 
 
@@ -74,7 +74,7 @@ having COUNT(*) > 250;
 select count(distinct rating) as film_rating
 from film;
 -- There are 5 different rating categories
-select rating, COUNT(*) AS num_movies
+select rating, count(*) AS num_movies
 from film
 group by rating
 order by num_movies desc
