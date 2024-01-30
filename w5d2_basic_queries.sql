@@ -61,11 +61,11 @@ order by customer_count DESC;
 
 -- 9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
 -- with ids between 380 and 430? (use group by and having > 250)
-SELECT amount, COUNT(*) as rental_count
-FROM payment
-WHERE customer_id BETWEEN 380 AND 430
-GROUP BY amount
-HAVING COUNT(*) > 250;
+select amount, COUNT(*) as rental_count
+from payment
+where customer_id BETWEEN 380 AND 430
+group BY amount
+having COUNT(*) > 250;
 -- There are 3 amount payments (2.99, 4.99 and 0.99) that meets these requirements
 
 
