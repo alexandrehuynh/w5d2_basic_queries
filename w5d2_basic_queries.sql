@@ -44,21 +44,19 @@ from address;
 
 
 -- 7. What film has the most actors in it? (use film_actor table and get film_id)
-select film_id, count(film_actor)
+select film_id, count(actor_id)
 from film_actor
 group by film_id
 order by count(film_actor) desc
 limit 1;
 -- Lambs Cincinatti (508) has the most actors with the count of 15
 
-
 -- 8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
 select store_id, count(last_name) as customer_count
 from customer
-where last_name LIKE '%es'
+where last_name LIKE '%es' and store_id = 1
 group by store_id
 order by customer_count desc
-limit 1;
 -- There are 13 customers at store 1 with a last name ending in es
 
 
